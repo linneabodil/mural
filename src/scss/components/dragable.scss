@@ -1,0 +1,18 @@
+.mural-dragable {
+
+  &__item {
+    display: flex;
+    position: relative;
+    touch-action: none;
+    cursor: move;
+    margin: 0;
+    z-index: 0;
+    height: calc(100% - 4px);
+  }
+
+  .km-image {
+    background-repeat: repeat-x;
+    background-position: top left;
+    width: 100%;
+  }
+}

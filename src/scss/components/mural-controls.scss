@@ -1,0 +1,353 @@
+.controls {
+  background: $green-grey;
+  padding: 0 1.5rem 1rem;
+  margin-top: -2rem;
+  width: auto;
+
+  @media only screen and (min-width: 960px) {
+    height: calc(100% + 2rem);
+    padding: 5.5rem 3rem 3rem;
+    width: 440px;
+  }
+
+  &__close {
+    position: absolute;
+    height: 2rem;
+    right: 16px;
+    top: 16px;
+    transition: .15s $cubic-bezier;
+    width: 2rem;
+
+    @media only screen and (min-width: 960px) {
+      right: 16px;
+      top: 48px;
+    }
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      transform: scale(1.3);
+
+      path {
+        fill: $dark-grey;
+        stroke: $dark-grey;
+        transition: .15s $cubic-bezier;
+      }
+    }
+  }
+
+  &__sub-title {
+    font-family: $font-sans-serif;
+    font-weight: $font-weight-medium;
+    font-size: 1.125rem;
+    padding-top: 16px;
+    margin-bottom: 16px;
+
+    @media only screen and (min-width: 960px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__checkbox {
+    .controls__label {
+      display: flex;
+    }
+
+      input[type="checkbox"] {
+        appearance: none;
+        background-color: white;
+        border: .0625rem solid rgba($dark-grey, .25);
+        border-radius: .125rem;
+        cursor: pointer;
+        display: inline-block;
+        flex: 0 0 auto;
+        height: 26px;
+        margin: 0 1rem 0 0;
+        position: relative;
+        top: 6px;
+        width: 26px;
+
+        &:focus {
+          border: 1px solid rgba($color: $green, $alpha: .5);
+          box-shadow: 0 0 5px rgba($color: $green, $alpha: .25);
+          outline: none;
+        }
+
+      &::after {
+        transition: $cubic-bezier;
+
+        border-bottom: .1875rem solid lighten($green, 5%);
+        border-left: 0;
+        border-right: .1875rem solid lighten($green, 5%);
+        border-top: 0;
+        content: "";
+        display: inline-block;
+        height: .8875rem;
+        left: calc(50% + .03125rem);
+        opacity: 0;
+        position: absolute;
+        top: .125rem;
+        transform: translateX(-50%) rotate(45deg);
+        width: .5375rem;
+      }
+
+      &:checked {
+        opacity: 1;
+
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+
+    label {
+      cursor: pointer;
+      font-family: $font-sans-serif;
+      font-weight: $font-weight-light;
+      font-size: 1.125rem;
+      line-height: 1.45;
+      width: 100%;
+
+      @media only screen and (min-width: 960px) {
+        width: 90%;
+      }
+    }
+  }
+
+  &__icon-container {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    height: 64px;
+    padding: 0 0 0 12px;
+  }
+
+  &__icon-up-down {
+    background-color: transparent;
+    background-image: url(assets/arrow-up-down.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    display: block;
+    height: 1rem;
+    width: 1rem;
+
+    &--rotate {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__error-box {
+    background-color: $medium-orange;
+    border-radius: 6px;
+    color: $dark-grey;
+    font-size: .875rem;
+    font-weight: $font-weight-light;
+    line-height: 1.285;
+    margin-top: 1rem;
+    padding: .75rem 1rem .8rem;
+
+    a {
+      color: $blue !important;
+      text-decoration: none;
+    }
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__icon-wrapper {
+    align-items: center;
+    background: white;
+    display: flex;
+    flex: 1 1 auto;
+    height: 72px;
+
+    @media only screen and (min-width: 960px) {
+      flex: initial;
+    }
+
+    &.size-error {
+      background-color: $light-orange;
+      border: 1px solid $orange;
+
+      .controls__icon-container {
+        background-color: $light-orange;
+      }
+    }
+
+    .v-text-field__slot {
+      justify-content: flex-end;
+    }
+
+    .v-text-field__details {
+      bottom: -45px;
+      left: -40px;
+      position: absolute;
+
+      .v-messages__message {
+        width: max-content;
+      }
+    }
+
+    .v-text-field--filled {
+      input {
+        margin-top: 0;
+      }
+    }
+
+    @media only screen and (min-width: 1200px) {
+      width: 49%;
+    }
+
+    .input-field {
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 100%;
+
+      &__label {
+        color: rgba($dark-grey, .5);
+        font-size: .875rem;
+        position: absolute;
+        top: 32px;
+        width: fit-content;
+
+        &--width {
+          right: 25px;
+        }
+
+        &--height {
+          right: 26px;
+        }
+      }
+
+      .v-input {
+        margin-left: 0 !important;
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        input[type=number] {
+          -moz-appearance:textfield;
+        }
+
+        input {
+          max-height: unset;
+        }
+
+        &__slot {
+          margin: 0;
+          border-radius: 0;
+
+          input {
+            font-family: "Garamond";
+            font-size: 1.4rem;
+            font-weight: bold;
+            max-width: 120px;
+          }
+
+          .v-text-field__slot {
+            align-items: center;
+            margin-bottom: 12px;
+
+            input {
+              text-align: end;
+            }
+          }
+
+          .v-text-field__suffix {
+            color: $dark-grey;
+            font-family: "Garamond";
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: .2rem;
+            margin-right: 1rem;
+          }
+        }
+
+        &__prepend-inner {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &__icon-wrapper:first-of-type {
+    margin-right: .5rem;
+  }
+
+  &__price {
+    align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &-total,
+    &-sqm {
+      font-family: $font-serif;
+    }
+
+    &-sqm {
+      margin-top: 0;
+    }
+
+    &-total {
+      font-size: 2.125rem;
+      margin-bottom: 1rem;
+      margin-right: 1rem;
+      line-height: .875;
+
+      @media only screen and (min-width: 960px) {
+        font-size: 3rem;
+      }
+    }
+
+    &-sqm {
+      color: rgba($color: $dark-grey, $alpha: .9);
+      font-size: 1.125rem;
+      line-height: 2.125;
+    }
+  }
+
+  // removes border-bottom from inputfields
+  .v-text-field .v-input__control .v-input__slot:before,
+  .v-text-field .v-input__control .v-input__slot:after {
+    width: 0;
+  }
+
+  .v-btn {
+    margin-bottom: 6px;
+
+    &.order {
+      border-radius: 0;
+    }
+
+    &.size-error {
+      background-color: $light-green !important;
+      border: none !important;
+      color: rgba(255, 255, 255, .65) !important;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+  }
+
+  // Override for buttons disabled class
+  .theme--light.v-btn.v-btn--disabled:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+    background-color: $light-green !important;
+  }
+}
+
+// Makes the controls background area expand entire screen when above 960px in width
+.controls__area {
+  @media only screen and (min-width: 960px) {
+    .v-card {
+      height: 100%;
+    }
+  }
+}

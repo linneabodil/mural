@@ -1,0 +1,52 @@
+.mural-selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+ &__item {
+   background: $light-grey;
+   position: relative;
+
+   &--no-background {
+     // Remove double background under selection
+     background: none !important;
+   }
+
+   .mural-edge {
+    background: $light-grey;
+    width: 100%;
+
+    &__top {
+      position: absolute;
+      display: block;
+     }
+   }
+
+   &.mural-start-view {
+    background: rgba($color: $light-grey, $alpha: .5);
+   }
+
+  .drag-active & {
+    background: rgba($color: $light-grey, $alpha: .5);
+  }
+
+    &--selection {
+      background: none !important;
+      border: 2px solid rgba($color: $magenta, $alpha: .7);
+      width: 100%;
+      cursor: move;
+
+      #breadths {
+        height: 100%;
+        width: 100%;
+        z-index: 10;
+      }
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

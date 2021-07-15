@@ -1,0 +1,39 @@
+// BASE
+@import './base/typography.scss';
+@import './base/colors.scss';
+
+// COMPONENTS
+@import './components/mural.scss';
+@import './components/mural-controls.scss';
+@import './components/mural-image.scss';
+@import './components/selection.scss';
+@import './components/dragable.scss';
+
+#mural-app {
+  font-family: $font-sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #EFF0F0;
+}
+
+.mural-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden;
+
+  @media only screen and (min-width: 960px) {
+    flex-direction: row;
+    height: 100vh;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// replace v-container:fluid
+.fluid {
+  max-width: 100%;
+}
